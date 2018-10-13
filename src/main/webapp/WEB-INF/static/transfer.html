@@ -1,0 +1,44 @@
+<div>
+	<h2>Hello transfer</h2>
+	<form name="myForm">
+		<label> Enter your name: <input type="text" name="myName"
+			ng-model="name" ng-minlength="5" ng-maxlength="20" required />
+		</label>
+		<pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
+
+		<div ng-messages="myForm.myName.$error" style="color: maroon"
+			role="alert">
+			<div ng-message="required">You did not enter a field</div>
+			<div ng-message="minlength">Your field is too short</div>
+			<div ng-message="maxlength">Your field is too long</div>
+		</div>
+	</form>
+	<select class="form-control" ng-model="selectedName"
+		ng-options="x for x in accounts">
+	</select>
+	<pre> {{ selectedName | json }}</pre>
+	<div class="radio">
+		<label>radio gomb <input type="radio" ng-model="color.name"
+			value="red"> Red
+		</label>
+	</div>
+	<br /> <label> radio gomb <input type="radio"
+		ng-model="color.name" value="blue"> Blue
+	</label><br />
+
+	<pre> {{ color.name | json }}</pre>
+
+	<textarea rows="4" cols="50">		
+	</textarea>
+
+	<label>Value1: <input type="checkbox"
+		ng-model="checkboxModel.value1">
+	</label><br /> <label>Value2: <input type="checkbox"
+		ng-model="checkboxModel.value2" ng-true-value="'YES'"
+		ng-false-value="'NO'">
+	</label><br />
+	<tt>value1 = {{checkboxModel.value1}}</tt>
+	<br />
+	<tt>value2 = {{checkboxModel.value2}}</tt>
+	<br />
+</div>
